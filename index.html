@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Crypto to St. Louis Nonprofits</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .nonprofit {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .nonprofit a {
+            color: #0077cc;
+            text-decoration: none;
+        }
+        .nonprofit a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Donate Crypto to St. Louis Nonprofits</h1>
+
+    <input type="text" id="searchInput" onkeyup="searchNonprofits()" placeholder="Search for a nonprofit...">
+
+    <div id="nonprofitList">
+        <div class="nonprofit">
+            <h3>TechArtista Foundation</h3>
+            <a href="https://www.every.org/techartista-foundation?q=techartisa&donateTo=techartista-foundation#/donate/crypto" target="_blank">Donate via Every.org</a>
+        </div>
+        <div class="nonprofit">
+            <h3>CounterPublic</h3>
+            <a href="https://www.every.org/counterpublic?search_meta=%7B%22query%22%3A%22counterpublic%22%2C%22distance%22%3A100%7D&donateTo=counterpublic#/donate/crypto" target="_blank">Donate via Every.org</a>
+        </div>
+        <div class="nonprofit">
+            <h3>Stray Rescue St. Louis</h3>
+            <a href="https://www.every.org/strayrescue?search_meta=%7B%22query%22%3A%22stray+rescue%22%2C%22distance%22%3A100%7D&donateTo=strayrescue#/donate/crypto" target="_blank">Donate via Every.org</a>
+        </div>
+        <div class="nonprofit">
+            <h3>FamilyForward</h3>
+            <a href="https://www.every.org/familyforwardmo?search_meta=%7B%22query%22%3A%22family+forward%22%2C%22distance%22%3A100%7D&donateTo=familyforwardmo#/donate/crypto" target="_blank">Donate via Every.org</a>
+        </div>
+        <div class="nonprofit">
+            <h3>St. Louis ArtWorks</h3>
+            <a href="https://www.every.org/st-louis-artworks?q=St.+Louis&causes=art&donateTo=st-louis-artworks#/donate/crypto" target="_blank">Donate via Every.org</a>
+        </div>
+        <div class="nonprofit">
+            <h3>BlackGirlsDoStem</h3>
+            <a href="https://www.every.org/black-girls-do-stem?search_meta=%7B%22query%22%3A%22black+girls+do+stem%22%2C%22distance%22%3A100%7D&donateTo=black-girls-do-stem#/donate/crypto" target="_blank">Donate via Every.org</a>
+        </div>
+        <div class="nonprofit">
+            <h3>LaunchCode</h3>
+            <a href="https://www.every.org/launchcode?search_meta=%7B%22query%22%3A%22launch+code%22%7D&donateTo=launchcode#/donate/crypto" target="_blank">Donate via Every.org</a>
+        </div>
+        <div class="nonprofit">
+            <h3>NAMI</h3>
+            <a href="https://www.every.org/namistl?search_meta=%7B%22query%22%3A%22st.louis+apa%22%2C%22distance%22%3A100%7D&donateTo=namistl#/donate/crypto" target="_blank">Donate via Every.org</a>
+        </div>
+        <div class="nonprofit">
+            <h3>Elevate</h3>
+            <a href="https://www.every.org/elevate-st-louis?search_meta=%7B%22query%22%3A%22elevate%22%2C%22lat%22%3A38.6270025%2C%22lng%22%3A-90.19940419999999%2C%22distance%22%3A100%2C%22address%22%3A%22St.+Louis%2C+MO%2C+USA%22%7D&donateTo=elevate-st-louis#/donate/crypto" target="_blank">Donate via Every.org</a>
+        </div>
+        <div class="nonprofit">
+            <h3>Operation Food Search</h3>
+            <a href="https://www.every.org/operation-food-search?q=operation+food+search&lat=38.6270025&lng=-90.19940419999999&address=St.+Louis%2C+MO%2C+USA&donateTo=operation-food-search#/donate/crypto" target="_blank">Donate via Every.org</a>
+        </div>
+    </div>
+
+    <script>
+        function searchNonprofits() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const nonprofitList = document.getElementById('nonprofitList');
+            const nonprofits = nonprofitList.getElementsByClassName('nonprofit');
+
+            for (let i = 0; i < nonprofits.length; i++) {
+                let name = nonprofits[i].getElementsByTagName('h3')[0];
+                if (name) {
+                    let textValue = name.textContent || name.innerText;
+                    nonprofits[i].style.display = textValue.toLowerCase().includes(filter) ? '' : 'none';
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
